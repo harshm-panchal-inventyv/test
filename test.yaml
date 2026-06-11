@@ -28,12 +28,12 @@ metadata:
   name: example-job
   annotations:
     argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   template:
     spec:
       containers:
       - name: example-container
         image: alpine
-        command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 60"]
+        command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 10"]
       restartPolicy: Never
