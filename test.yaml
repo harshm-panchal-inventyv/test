@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: my-first-service
   annotations:
-    argocd.argoproj.io/ignore-resource-update: "true"
+    argocd.argoproj.io/ignore-resource-updates: "true"
 spec:
   selector:
-    env: production
+    env: prod
   ports:
     - name: http
       port: 80
