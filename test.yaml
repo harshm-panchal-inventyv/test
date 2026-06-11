@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-first-service
-  annotations:
-    argocd.argoproj.io/ignore-resource-updates: "true"
+  # annotations:
+  #   argocd.argoproj.io/ignore-resource-updates: "true"
 spec:
   selector:
     env: prod
   ports:
     - name: http
       port: 80
-      targetPort: 800
+      targetPort: 8000
       protocol: TCP
 ---
 apiVersion: v1
