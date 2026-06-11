@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/ignore-resource-update: "true"
 spec:
   selector:
-    env: prod
+    env: production
   ports:
     - name: http
       port: 80
