@@ -55,7 +55,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/sync-options: "Force=true,Replace=true"
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     abcde: "12345"
 spec:
   template:
@@ -64,15 +63,6 @@ spec:
         app: my-app
     spec:
       serviceAccountName: job-deployment-watcher
-      # initContainers:
-      # - name: wait-for-deployment
-      #   image: bitnami/kubectl:latest
-      #   command:
-      #   - /bin/sh
-      #   - -c
-      #   - |
-      #     echo "Waiting for my-app-deployment to fully roll out..."
-      #     kubectl rollout status deployment/my-app-deployment --timeout=300s
       containers:
       - name: example-container
         image: alpine
