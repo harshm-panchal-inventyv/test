@@ -51,11 +51,10 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: my-example-job
+  generateName: my-example-job-
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    image-sha: "123456"
 spec:
   template:
     spec:
