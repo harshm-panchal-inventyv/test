@@ -29,13 +29,14 @@ spec:
       resource:
         limit:
           cpu: '250m'
+          memory: "128Mi"
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: example-job
-  # annotations:
-  #   argocd.argoproj.io/sync-wave: '1'
+  annotations:
+    argocd.argoproj.io/sync-wave: '1'
 spec:
   template:
     spec:
