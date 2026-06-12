@@ -19,7 +19,7 @@ kind: Pod
 metadata:
   # annotations:
   #   argocd.argoproj.io/sync-wave: '0'
-  name: my-first-pod
+  name: myfirstpod
   labels:
     env: prod
 spec:
