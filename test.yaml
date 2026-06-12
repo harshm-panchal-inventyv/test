@@ -10,7 +10,7 @@ spec:
   ports:
     - name: https
       port: 80
-      targetPort: 8000
+      targetPort: 8081
       protocol: TCP
 ---
 apiVersion: v1
