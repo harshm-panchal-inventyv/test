@@ -75,5 +75,5 @@ spec:
         command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 10"]
         env:
           - name: abc
-            value: "456"
+            value: "457"
       restartPolicy: Never
