@@ -37,7 +37,7 @@ spec:
         image: nginx:1.25.4
         env:
           - name: abc
-            value: "12345"
+            value: "123"
         ports:
         - containerPort: 80
         resources:
