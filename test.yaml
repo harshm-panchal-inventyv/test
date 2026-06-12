@@ -26,7 +26,9 @@ spec:
   containers:
     - name: myfirstcontainer
       image: nginx
-      imagePullPolicy: Never
+      resource:
+        limit:
+          cpu: '250m'
 ---
 apiVersion: batch/v1
 kind: Job
