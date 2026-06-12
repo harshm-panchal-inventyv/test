@@ -58,9 +58,6 @@ metadata:
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     abcde: "123456"
 spec:
-  selector:
-    matchLabels:
-      app: my-app
   template:
     metadata:
       labels:
