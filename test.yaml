@@ -28,7 +28,7 @@ spec:
       image: nginx
       env:
         - name: abc
-          value: 123
+          value: "123"
 ---
 apiVersion: batch/v1
 kind: Job
