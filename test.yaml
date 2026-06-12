@@ -51,14 +51,14 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: my-examplejob
+  name: my-example-job
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   template:
     spec:
-      serviceAccountName: sa-argocd
+      serviceAccountName: job-deployment-watcher
       initContainers:
       - name: wait-for-deployment
         image: bitnami/kubectl:latest
