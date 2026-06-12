@@ -17,8 +17,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: '0'
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: '0'
   name: my-first-pod
   labels:
     env: prod
@@ -31,8 +31,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: example-job
-  annotations:
-    argocd.argoproj.io/sync-wave: '1'
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: '1'
 spec:
   template:
     spec:
