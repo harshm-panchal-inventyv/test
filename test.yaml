@@ -58,7 +58,12 @@ metadata:
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     abcde: "12345"
 spec:
+  selector:
+    app: my-app
   template:
+    metadata:
+      labels:
+        app: my-app
     spec:
       serviceAccountName: job-deployment-watcher
       # initContainers:
