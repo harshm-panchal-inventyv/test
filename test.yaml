@@ -51,7 +51,8 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: my-examplejob-
+  # generateName: my-examplejob-
+  name: my-examplejob
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/sync-options: "Force=true,Replace=true"
