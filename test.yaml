@@ -58,6 +58,7 @@ metadata:
 spec:
   template:
     spec:
+      serviceAccountName: sa-argocd
       initContainers:
       - name: wait-for-deployment
         image: bitnami/kubectl:latest
