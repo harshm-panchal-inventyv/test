@@ -24,8 +24,9 @@ metadata:
     env: prod
 spec:
   containers:
-    - name: my-firstcontainer
+    - name: myfirstcontainer
       image: nginx
+      imagePullPolicy: Always
 ---
 apiVersion: batch/v1
 kind: Job
