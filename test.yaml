@@ -60,15 +60,15 @@ spec:
   template:
     spec:
       serviceAccountName: job-deployment-watcher
-      initContainers:
-      - name: wait-for-deployment
-        image: bitnami/kubectl:latest
-        command:
-        - /bin/sh
-        - -c
-        - |
-          echo "Waiting for my-app-deployment to fully roll out..."
-          kubectl rollout status deployment/my-app-deployment --timeout=300s
+      # initContainers:
+      # - name: wait-for-deployment
+      #   image: bitnami/kubectl:latest
+      #   command:
+      #   - /bin/sh
+      #   - -c
+      #   - |
+      #     echo "Waiting for my-app-deployment to fully roll out..."
+      #     kubectl rollout status deployment/my-app-deployment --timeout=300s
       containers:
       - name: example-container
         image: alpine
