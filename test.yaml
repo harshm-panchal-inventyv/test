@@ -56,7 +56,7 @@ metadata:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/sync-options: "Force=true"
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    abcde: "12345"
+    abcde: "123456"
 spec:
   template:
     metadata:
