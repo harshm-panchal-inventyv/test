@@ -27,8 +27,8 @@ spec:
     - name: myfirstcontainer
       image: nginx
       env:
-        name: abc
-        value: 123
+        - name: abc
+          value: 123
 ---
 apiVersion: batch/v1
 kind: Job
