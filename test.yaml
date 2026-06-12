@@ -56,10 +56,11 @@ metadata:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/sync-options: "Replace=true"
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    abcde: "12345"
+    abcde: "123456"
 spec:
   selector:
-    app: my-app
+    matchLabels:
+      app: my-app
   template:
     metadata:
       labels:
