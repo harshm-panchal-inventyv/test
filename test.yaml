@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: my-first-service
   annotations:
+    argocd.argoproj.io/sync-wave: '2'
     argocd.argoproj.io/ignore-resource-updates: "true"
 spec:
   selector:
@@ -16,6 +17,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '0'
   name: my-first-pod
   labels:
     env: prod
@@ -29,6 +32,7 @@ kind: Job
 metadata:
   name: example-job
   annotations:
+    argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
