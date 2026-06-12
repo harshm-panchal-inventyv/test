@@ -24,7 +24,7 @@ metadata:
     env: prod
 spec:
   containers:
-    - name: myfirstcontainer
+    - name: my-firstcontainer
       image: nginx
 ---
 apiVersion: batch/v1
