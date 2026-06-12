@@ -51,7 +51,7 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: my-example-job
+  name: my-examplejob
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
@@ -73,4 +73,7 @@ spec:
       - name: example-container
         image: alpine
         command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 10"]
+        env:
+          - name: abc
+            value: "123"
       restartPolicy: Never
