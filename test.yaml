@@ -54,6 +54,7 @@ metadata:
   name: my-example-job
   annotations:
     argocd.argoproj.io/sync-wave: '1'
+    argocd.argoproj.io/sync-options: "Replace=true"
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     abcde: "12345"
 spec:
@@ -75,5 +76,5 @@ spec:
         command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 10"]
         env:
           - name: abc
-            value: "457"
+            value: "456"
       restartPolicy: Never
