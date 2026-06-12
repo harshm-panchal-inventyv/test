@@ -55,7 +55,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '1'
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  labels:
     abcde: "12345"
 spec:
   template:
