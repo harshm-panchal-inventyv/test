@@ -26,10 +26,8 @@ spec:
   containers:
     - name: myfirstcontainer
       image: nginx
-      resource:
-        limit:
-          cpu: '250m'
-          memory: "128Mi"
+      env:
+        abc: 123
 ---
 apiVersion: batch/v1
 kind: Job
