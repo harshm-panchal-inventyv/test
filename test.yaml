@@ -2,9 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-first-service
-  annotations:
-    argocd.argoproj.io/sync-wave: '2'
-    argocd.argoproj.io/ignore-resource-updates: "true"
+  namespace: ns-prod
 spec:
   selector:
     env: prod
@@ -17,9 +15,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-deployment
-  annotations:
-    argocd.argoproj.io/sync-wave: '0'
+  name: nginx-deployment
+  namespace: ns-prod
   labels:
     app: my-app
 spec:
@@ -48,27 +45,22 @@ spec:
             memory: "128Mi"
             cpu: "500m"
 ---
-apiVersion: batch/v1
-kind: Job
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
 metadata:
-  # generateName: my-examplejob-
-  name: my-examplejob
-  annotations:
-    argocd.argoproj.io/sync-wave: '1'
-    argocd.argoproj.io/sync-options: "Force=true,Replace=true"
-    abcde: "123456"
+  name: hpa-nginx
+  namespace: ns-prod
 spec:
-  template:
-    metadata:
-      labels:
-        app: my-app
-    spec:
-      serviceAccountName: job-deployment-watcher
-      containers:
-      - name: example-container
-        image: alpine
-        command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 10"]
-        env:
-          - name: abc
-            value: "456"
-      restartPolicy: Never
+  maxReplicas: 3
+  metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 85
+          type: Utilization
+      type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment
